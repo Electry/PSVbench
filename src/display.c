@@ -17,37 +17,17 @@ static float g_display_text_scale = 1.0f;
 static rgba_t g_display_text_color = {.rgba = {.r = 255, .g = 255, .b = 255, .a = 255}};
 static rgba_t g_display_back_color = {.rgba = {.r =   0, .g =   0, .b =   0, .a = 255}};
 
-
-static int g_y = 0;
-void display_printff(const char *format, ...) {
-    char buffer[256] = "";
-    va_list va;
-
-    va_start(va, format);
-    vsnprintf(buffer, 256, format, va);
-    va_end(va);
-
-    size_t len = strlen(buffer);
-    for (size_t i = 0; i < len; i++) {
-        display_prchar(buffer[i], (i * FONT_WIDTH * g_display_text_scale) + 0, g_y, g_display_text_scale);
-    }
-
-    g_y += FONT_HEIGHT;
-}
-
-
-
 void display_init() {
     int buffer_size = (((DISPLAY_PITCH * DISPLAY_HEIGHT * 4) + ((256 * 1024) - 1)) >> 18 << 18);
 
     g_display_mutex = sceKernelCreateMutex("display_mutex", 0, 0, NULL);
-	g_display_vram_uid = sceKernelAllocMemBlock(
+    g_display_vram_uid = sceKernelAllocMemBlock(
             "display_vram",
             SCE_KERNEL_MEMBLOCK_TYPE_USER_CDRAM_RW,
             2 * buffer_size,
             NULL);
 
-	sceKernelGetMemBlockBase(g_display_vram_uid, (void **)&g_display_vram_base[0]);
+    sceKernelGetMemBlockBase(g_display_vram_uid, (void **)&g_display_vram_base[0]);
     g_display_vram_base[1] = (rgba_t *)((uint32_t)g_display_vram_base[0] + buffer_size);
 }
 
@@ -69,7 +49,7 @@ void display_sync() {
     // Flip
     g_display_offscreen_buf_i = (g_display_offscreen_buf_i == 1) ? 0 : 1;
 
-	sceDisplaySetFrameBuf(&fb, SCE_DISPLAY_SETBUF_NEXTFRAME);
+    sceDisplaySetFrameBuf(&fb, SCE_DISPLAY_SETBUF_NEXTFRAME);
     sceDisplayWaitSetFrameBuf();
 }
 

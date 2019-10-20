@@ -1,29 +1,30 @@
 #ifndef DHRYSTONE_IMPL_H
 #define DHRYSTONE_IMPL_H
 
-#define DECL_DHRYSTONE_ALL(thread) \
-    bool Func_3_T##thread(Enumeration Enum_Par_Val); \
-    bool Func_2_T##thread(char Str_1_Par_Ref[31], char Str_2_Par_Ref[31]); \
-    Enumeration Func_1_T##thread(char Ch_1_Par_Val, char Ch_2_Par_Val); \
-    void Proc_8_T##thread(int Arr_1_Par_Ref[50], int Arr_2_Par_Ref[50][50], int Int_1_Par_Val, int Int_2_Par_Val); \
+#define DECL_DHRYSTONE_ALL(thread)                                                 \
+    bool Func_3_T##thread(Enumeration Enum_Par_Val);                               \
+    bool Func_2_T##thread(char Str_1_Par_Ref[31], char Str_2_Par_Ref[31]);         \
+    Enumeration Func_1_T##thread(char Ch_1_Par_Val, char Ch_2_Par_Val);            \
+    void Proc_8_T##thread(int Arr_1_Par_Ref[50], int Arr_2_Par_Ref[50][50],        \
+                            int Int_1_Par_Val, int Int_2_Par_Val);                 \
     void Proc_7_T##thread(int Int_1_Par_Val, int Int_2_Par_Val, int *Int_Par_Ref); \
-    void Proc_6_T##thread(Enumeration Enum_Val_Par, Enumeration *Enum_Ref_Par); \
-    void Proc_5_T##thread(); \
-    void Proc_4_T##thread(); \
-    void Proc_3_T##thread(Rec_Pointer *Ptr_Ref_Par); \
-    void Proc_2_T##thread(int *Int_Par_Ref); \
-    void Proc_1_T##thread(register Rec_Pointer Ptr_Val_Par); \
-    DECL_Proc_1(thread) \
-    DECL_Proc_2(thread) \
-    DECL_Proc_3(thread) \
-    DECL_Proc_4(thread) \
-    DECL_Proc_5(thread) \
-    DECL_Proc_6(thread) \
-    DECL_Proc_7(thread) \
-    DECL_Proc_8(thread) \
-    DECL_Func_1(thread) \
-    DECL_Func_2(thread) \
-    DECL_Func_3(thread) \
+    void Proc_6_T##thread(Enumeration Enum_Val_Par, Enumeration *Enum_Ref_Par);    \
+    void Proc_5_T##thread();                                                       \
+    void Proc_4_T##thread();                                                       \
+    void Proc_3_T##thread(Rec_Pointer *Ptr_Ref_Par);                               \
+    void Proc_2_T##thread(int *Int_Par_Ref);                                       \
+    void Proc_1_T##thread(register Rec_Pointer Ptr_Val_Par);                       \
+    DECL_Proc_1(thread)                                                            \
+    DECL_Proc_2(thread)                                                            \
+    DECL_Proc_3(thread)                                                            \
+    DECL_Proc_4(thread)                                                            \
+    DECL_Proc_5(thread)                                                            \
+    DECL_Proc_6(thread)                                                            \
+    DECL_Proc_7(thread)                                                            \
+    DECL_Proc_8(thread)                                                            \
+    DECL_Func_1(thread)                                                            \
+    DECL_Func_2(thread)                                                            \
+    DECL_Func_3(thread)                                                            \
     DECL_MAIN(thread)
 
 /*
@@ -97,7 +98,8 @@
         End_Time = sceKernelGetProcessTimeLow();                                   \
         User_Time = End_Time - Begin_Time;                                         \
                                                                                    \
-        Dhrystones_Per_Second = ((float)HZ * (float)Number_Of_Runs) / (float)User_Time; \
+        Dhrystones_Per_Second = ((float)HZ * (float)Number_Of_Runs)                \
+                                    / (float)User_Time;                            \
                                                                                    \
         return Dhrystones_Per_Second / 1757;                                       \
     }
