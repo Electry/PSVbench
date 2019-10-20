@@ -184,31 +184,31 @@ void draw_view() {
 
             // Storage results
             if (results->io_write_ux0_4k > 0)
-                display_printf(ANCHOR_LX(40, 18), ANCHOR_TY(448, 0), "%5.2f", results->io_write_ux0_4k / 1024.0f);
+                display_printf(ANCHOR_LX(40, 16), ANCHOR_TY(448, 0), "%6.2f", results->io_write_ux0_4k / 1024.0f);
             if (results->io_read_ux0_4k > 0)
-                display_printf(ANCHOR_LX(40, 30), ANCHOR_TY(448, 0), "%5.2f", results->io_read_ux0_4k / 1024.0f);
+                display_printf(ANCHOR_LX(40, 28), ANCHOR_TY(448, 0), "%6.2f", results->io_read_ux0_4k / 1024.0f);
             if (results->io_write_ux0 > 0)
-                display_printf(ANCHOR_LX(40, 41), ANCHOR_TY(448, 0), "%5.2f", results->io_write_ux0 / 1024.0f);
+                display_printf(ANCHOR_LX(40, 40), ANCHOR_TY(448, 0), "%6.2f", results->io_write_ux0 / 1024.0f);
             if (results->io_read_ux0 > 0)
-                display_printf(ANCHOR_LX(40, 53), ANCHOR_TY(448, 0), "%5.2f", results->io_read_ux0 / 1024.0f);
+                display_printf(ANCHOR_LX(40, 52), ANCHOR_TY(448, 0), "%6.2f", results->io_read_ux0 / 1024.0f);
             // uma0
             if (results->io_write_uma0_4k > 0)
-                display_printf(ANCHOR_LX(40, 18), ANCHOR_TY(448, 1), "%5.2f", results->io_write_uma0_4k / 1024.0f);
+                display_printf(ANCHOR_LX(40, 16), ANCHOR_TY(448, 1), "%6.2f", results->io_write_uma0_4k / 1024.0f);
             if (results->io_read_uma0_4k > 0)
-                display_printf(ANCHOR_LX(40, 30), ANCHOR_TY(448, 1), "%5.2f", results->io_read_uma0_4k / 1024.0f);
+                display_printf(ANCHOR_LX(40, 28), ANCHOR_TY(448, 1), "%6.2f", results->io_read_uma0_4k / 1024.0f);
             if (results->io_write_uma0 > 0)
-                display_printf(ANCHOR_LX(40, 41), ANCHOR_TY(448, 1), "%5.2f", results->io_write_uma0 / 1024.0f);
+                display_printf(ANCHOR_LX(40, 40), ANCHOR_TY(448, 1), "%6.2f", results->io_write_uma0 / 1024.0f);
             if (results->io_read_uma0 > 0)
-                display_printf(ANCHOR_LX(40, 53), ANCHOR_TY(448, 1), "%5.2f", results->io_read_uma0 / 1024.0f);
+                display_printf(ANCHOR_LX(40, 52), ANCHOR_TY(448, 1), "%6.2f", results->io_read_uma0 / 1024.0f);
             // imc0
             if (results->io_write_imc0_4k > 0)
-                display_printf(ANCHOR_LX(40, 18), ANCHOR_TY(448, 2), "%5.2f", results->io_write_imc0_4k / 1024.0f);
+                display_printf(ANCHOR_LX(40, 16), ANCHOR_TY(448, 2), "%6.2f", results->io_write_imc0_4k / 1024.0f);
             if (results->io_read_imc0_4k > 0)
-                display_printf(ANCHOR_LX(40, 30), ANCHOR_TY(448, 2), "%5.2f", results->io_read_imc0_4k / 1024.0f);
+                display_printf(ANCHOR_LX(40, 28), ANCHOR_TY(448, 2), "%6.2f", results->io_read_imc0_4k / 1024.0f);
             if (results->io_write_imc0 > 0)
-                display_printf(ANCHOR_LX(40, 41), ANCHOR_TY(448, 2), "%5.2f", results->io_write_imc0 / 1024.0f);
+                display_printf(ANCHOR_LX(40, 40), ANCHOR_TY(448, 2), "%6.2f", results->io_write_imc0 / 1024.0f);
             if (results->io_read_imc0 > 0)
-                display_printf(ANCHOR_LX(40, 53), ANCHOR_TY(448, 2), "%5.2f", results->io_read_imc0 / 1024.0f);
+                display_printf(ANCHOR_LX(40, 52), ANCHOR_TY(448, 2), "%6.2f", results->io_read_imc0 / 1024.0f);
 
             display_set_color(255, 255, 255, 255);
             break;
