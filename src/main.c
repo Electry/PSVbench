@@ -99,112 +99,116 @@ void draw_view() {
 			benchmark_results_t *results = get_benchmark_results();
 
 			display_set_scale(2.0f);
-			display_printf(ANCHOR_LX(5, 0),       ANCHOR_TY(100, 0), "CPU");
-			display_printf(ANCHOR_LX(480 + 35, 0), ANCHOR_TY(100, 0), "CPU ST");
-			display_printf(ANCHOR_LX(5, 0),       ANCHOR_TY(226, 0), "Memory");
-			display_printf(ANCHOR_LX(480 + 35, 0), ANCHOR_TY(226, 0), "Latency");
-			display_printf(ANCHOR_LX(5, 0),       ANCHOR_TY(400, 0), "Storage");
+			display_printf(ANCHOR_LX(25, 0),        ANCHOR_TY(100, 0), "CPU");
+			display_printf(ANCHOR_LX(480 + 125, 0), ANCHOR_TY(100, 0), "CPU ST");
+			display_printf(ANCHOR_LX(25, 0),        ANCHOR_TY(226, 0), "Memory");
+			display_printf(ANCHOR_LX(480 + 125, 0), ANCHOR_TY(226, 0), "Latency");
+			display_printf(ANCHOR_LX(25, 0),        ANCHOR_TY(400, 0), "Storage");
 			display_set_scale(1.0f);
 
 			// CPU
-			display_printf(ANCHOR_LX(20, 0), ANCHOR_TY(148, 0), "Dhrystone:        DMIPS");
-			display_printf(ANCHOR_LX(20, 0), ANCHOR_TY(148, 1), "Linpack:          MFLOPS");
+			display_printf(ANCHOR_LX(40, 0), ANCHOR_TY(148, 0), "Dhrystone:        DMIPS");
+			display_printf(ANCHOR_LX(40, 0), ANCHOR_TY(148, 1), "Linpack:          MFLOPS");
 
 			// CPU ST
-			display_printf(ANCHOR_LX(480 + 50, 0), ANCHOR_TY(148, 0), "Dhrystone:        DMIPS");
-			display_printf(ANCHOR_LX(480 + 50, 0), ANCHOR_TY(148, 1), "Linpack:          MFLOPS");
+			display_printf(ANCHOR_LX(480 + 140, 0), ANCHOR_TY(148, 0), "Dhrystone:        DMIPS");
+			display_printf(ANCHOR_LX(480 + 140, 0), ANCHOR_TY(148, 1), "Linpack:          MFLOPS");
 
 			// Memory
-			display_printf(ANCHOR_LX(20, 17), ANCHOR_TY(242, 0), "memcpy    dma");
-			display_printf(ANCHOR_LX(20, 0), ANCHOR_TY(274, 0), "LPDDR -> LPDDR:     MB/s       MB/s");
-			display_printf(ANCHOR_LX(20, 0), ANCHOR_TY(274, 1), "  PHY -> PHY:       MB/s       MB/s");
-			display_printf(ANCHOR_LX(20, 0), ANCHOR_TY(274, 2), "CDRAM -> CDRAM:     MB/s       MB/s");
-			display_printf(ANCHOR_LX(20, 0), ANCHOR_TY(274, 3), "LPDDR -> CDRAM:     MB/s       MB/s");
+			display_printf(ANCHOR_LX(40, 18), ANCHOR_TY(242, 0), "memcpy    dma");
+			display_printf(ANCHOR_LX(40, 0), ANCHOR_TY(274, 0), "LPDDR -> LPDDR:      MB/s       MB/s");
+			display_printf(ANCHOR_LX(40, 0), ANCHOR_TY(274, 1), "  PHY -> PHY:        MB/s       MB/s");
+			display_printf(ANCHOR_LX(40, 0), ANCHOR_TY(274, 2), "CDRAM -> CDRAM:      MB/s       MB/s");
+			display_printf(ANCHOR_LX(40, 0), ANCHOR_TY(274, 3), "LPDDR -> CDRAM:      MB/s       MB/s");
 
 			// Latency
-			display_printf(ANCHOR_LX(480 + 50, 17), ANCHOR_TY(242, 0), "dword");
-			display_printf(ANCHOR_LX(480 + 50, 0), ANCHOR_TY(274, 0), "L1 cache:            ns");
-			display_printf(ANCHOR_LX(480 + 50, 0), ANCHOR_TY(274, 1), "L2 cache:            ns");
-			display_printf(ANCHOR_LX(480 + 50, 0), ANCHOR_TY(274, 2), "LPDDR:               ns");
-			display_printf(ANCHOR_LX(480 + 50, 0), ANCHOR_TY(274, 3), "CDRAM:               ns");
+			display_printf(ANCHOR_LX(480 + 140, 17), ANCHOR_TY(242, 0), "dword");
+			display_printf(ANCHOR_LX(480 + 140, 0), ANCHOR_TY(274, 0), "L1 cache:            ns");
+			display_printf(ANCHOR_LX(480 + 140, 0), ANCHOR_TY(274, 1), "L2 cache:            ns");
+			display_printf(ANCHOR_LX(480 + 140, 0), ANCHOR_TY(274, 2), "LPDDR:               ns");
+			display_printf(ANCHOR_LX(480 + 140, 0), ANCHOR_TY(274, 3), "CDRAM:               ns");
 
 			// Storage
-			display_printf(ANCHOR_LX(20, 18), ANCHOR_TY(416, 0), "write 4K    read 4K    write seq   read seq");
-			display_printf(ANCHOR_LX(20, 0), ANCHOR_TY(448, 0), "ux0:                   MB/s        MB/s        MB/s        MB/s");
-			display_printf(ANCHOR_LX(20, 0), ANCHOR_TY(448, 1), "uma0:                  MB/s        MB/s        MB/s        MB/s");
-			display_printf(ANCHOR_LX(20, 0), ANCHOR_TY(448, 2), "imc0:                  MB/s        MB/s        MB/s        MB/s");
+			display_printf(ANCHOR_LX(40, 18), ANCHOR_TY(416, 0),
+					"write 4K    read 4K    write seq   read seq");
+			display_printf(ANCHOR_LX(40, 0), ANCHOR_TY(448, 0),
+					"ux0:                   MB/s        MB/s        MB/s        MB/s");
+			display_printf(ANCHOR_LX(40, 0), ANCHOR_TY(448, 1),
+					"uma0:                  MB/s        MB/s        MB/s        MB/s");
+			display_printf(ANCHOR_LX(40, 0), ANCHOR_TY(448, 2),
+					"imc0:                  MB/s        MB/s        MB/s        MB/s");
 
 			display_set_color(50, 220, 255, 255);
 
 			// CPU results
 			if (results->dmips[0])
-				display_printf(ANCHOR_LX(20, 13), ANCHOR_TY(148, 0), "%4d",
+				display_printf(ANCHOR_LX(40, 13), ANCHOR_TY(148, 0), "%4d",
 					results->dmips[0] + results->dmips[1] + results->dmips[2]);
 			if (results->linpack[0])
-				display_printf(ANCHOR_LX(20, 13), ANCHOR_TY(148, 1), "%4d",
+				display_printf(ANCHOR_LX(40, 13), ANCHOR_TY(148, 1), "%4d",
 					results->linpack[0] + results->linpack[1] + results->linpack[2]);
 
 			// CPU 1T results
 			if (results->dmips_st)
-				display_printf(ANCHOR_LX(480 + 50, 13), ANCHOR_TY(148, 0), "%4d", results->dmips_st);
+				display_printf(ANCHOR_LX(480 + 140, 13), ANCHOR_TY(148, 0), "%4d", results->dmips_st);
 			if (results->linpack_st)
-				display_printf(ANCHOR_LX(480 + 50, 13), ANCHOR_TY(148, 1), "%4d", results->linpack_st);
+				display_printf(ANCHOR_LX(480 + 140, 13), ANCHOR_TY(148, 1), "%4d", results->linpack_st);
 
 			// Memory results
 			if (results->memcpy_uc2uc)
-				display_printf(ANCHOR_LX(20, 17), ANCHOR_TY(274, 0), "%2d", results->memcpy_uc2uc);
+				display_printf(ANCHOR_LX(40, 17), ANCHOR_TY(274, 0), "%3d", results->memcpy_uc2uc);
 			if (results->memcpy_phy2phy)
-				display_printf(ANCHOR_LX(20, 17), ANCHOR_TY(274, 1), "%2d", results->memcpy_phy2phy);
+				display_printf(ANCHOR_LX(40, 17), ANCHOR_TY(274, 1), "%3d", results->memcpy_phy2phy);
 			if (results->memcpy_cd2cd)
-				display_printf(ANCHOR_LX(20, 17), ANCHOR_TY(274, 2), "%2d", results->memcpy_cd2cd);
+				display_printf(ANCHOR_LX(40, 17), ANCHOR_TY(274, 2), "%3d", results->memcpy_cd2cd);
 			if (results->memcpy_uc2cd)
-				display_printf(ANCHOR_LX(20, 17), ANCHOR_TY(274, 3), "%2d", results->memcpy_uc2cd);
+				display_printf(ANCHOR_LX(40, 17), ANCHOR_TY(274, 3), "%3d", results->memcpy_uc2cd);
 			if (results->dma_uc2uc)
-				display_printf(ANCHOR_LX(20, 27), ANCHOR_TY(274, 0), "%3d", results->dma_uc2uc);
+				display_printf(ANCHOR_LX(40, 28), ANCHOR_TY(274, 0), "%3d", results->dma_uc2uc);
 			if (results->dma_phy2phy)
-				display_printf(ANCHOR_LX(20, 27), ANCHOR_TY(274, 1), "%3d", results->dma_phy2phy);
+				display_printf(ANCHOR_LX(40, 28), ANCHOR_TY(274, 1), "%3d", results->dma_phy2phy);
 			if (results->dma_cd2cd)
-				display_printf(ANCHOR_LX(20, 27), ANCHOR_TY(274, 2), "%3d", results->dma_cd2cd);
+				display_printf(ANCHOR_LX(40, 28), ANCHOR_TY(274, 2), "%3d", results->dma_cd2cd);
 			if (results->dma_uc2cd)
-				display_printf(ANCHOR_LX(20, 27), ANCHOR_TY(274, 3), "%3d", results->dma_uc2cd);
+				display_printf(ANCHOR_LX(40, 28), ANCHOR_TY(274, 3), "%3d", results->dma_uc2cd);
 
 			// Latency results
 			if (results->latency_l1)
-				display_printf(ANCHOR_LX(480 + 50, 17), ANCHOR_TY(274, 0), "%3d", results->latency_l1);
+				display_printf(ANCHOR_LX(480 + 140, 17), ANCHOR_TY(274, 0), "%3d", results->latency_l1);
 			if (results->latency_l2)
-				display_printf(ANCHOR_LX(480 + 50, 17), ANCHOR_TY(274, 1), "%3d", results->latency_l2);
+				display_printf(ANCHOR_LX(480 + 140, 17), ANCHOR_TY(274, 1), "%3d", results->latency_l2);
 			if (results->latency_lpddr)
-				display_printf(ANCHOR_LX(480 + 50, 17), ANCHOR_TY(274, 2), "%3d", results->latency_lpddr);
+				display_printf(ANCHOR_LX(480 + 140, 17), ANCHOR_TY(274, 2), "%3d", results->latency_lpddr);
 			if (results->latency_cdram)
-				display_printf(ANCHOR_LX(480 + 50, 17), ANCHOR_TY(274, 3), "%3d", results->latency_cdram);
+				display_printf(ANCHOR_LX(480 + 140, 17), ANCHOR_TY(274, 3), "%3d", results->latency_cdram);
 
 			// Storage results
 			if (results->io_write_ux0_4k > 0)
-				display_printf(ANCHOR_LX(20, 18), ANCHOR_TY(448, 0), "%3.2f", results->io_write_ux0_4k / 1024.0f);
+				display_printf(ANCHOR_LX(40, 18), ANCHOR_TY(448, 0), "%5.2f", results->io_write_ux0_4k / 1024.0f);
 			if (results->io_read_ux0_4k > 0)
-				display_printf(ANCHOR_LX(20, 30), ANCHOR_TY(448, 0), "%3.2f", results->io_read_ux0_4k / 1024.0f);
+				display_printf(ANCHOR_LX(40, 30), ANCHOR_TY(448, 0), "%5.2f", results->io_read_ux0_4k / 1024.0f);
 			if (results->io_write_ux0 > 0)
-				display_printf(ANCHOR_LX(20, 41), ANCHOR_TY(448, 0), "%3.2f", results->io_write_ux0 / 1024.0f);
+				display_printf(ANCHOR_LX(40, 41), ANCHOR_TY(448, 0), "%5.2f", results->io_write_ux0 / 1024.0f);
 			if (results->io_read_ux0 > 0)
-				display_printf(ANCHOR_LX(20, 53), ANCHOR_TY(448, 0), "%3.2f", results->io_read_ux0 / 1024.0f);
+				display_printf(ANCHOR_LX(40, 53), ANCHOR_TY(448, 0), "%5.2f", results->io_read_ux0 / 1024.0f);
 			// uma0
 			if (results->io_write_uma0_4k > 0)
-				display_printf(ANCHOR_LX(20, 18), ANCHOR_TY(448, 1), "%3.2f", results->io_write_uma0_4k / 1024.0f);
+				display_printf(ANCHOR_LX(40, 18), ANCHOR_TY(448, 1), "%5.2f", results->io_write_uma0_4k / 1024.0f);
 			if (results->io_read_uma0_4k > 0)
-				display_printf(ANCHOR_LX(20, 30), ANCHOR_TY(448, 1), "%3.2f", results->io_read_uma0_4k / 1024.0f);
+				display_printf(ANCHOR_LX(40, 30), ANCHOR_TY(448, 1), "%5.2f", results->io_read_uma0_4k / 1024.0f);
 			if (results->io_write_uma0 > 0)
-				display_printf(ANCHOR_LX(20, 41), ANCHOR_TY(448, 1), "%3.2f", results->io_write_uma0 / 1024.0f);
+				display_printf(ANCHOR_LX(40, 41), ANCHOR_TY(448, 1), "%5.2f", results->io_write_uma0 / 1024.0f);
 			if (results->io_read_uma0 > 0)
-				display_printf(ANCHOR_LX(20, 53), ANCHOR_TY(448, 1), "%3.2f", results->io_read_uma0 / 1024.0f);
+				display_printf(ANCHOR_LX(40, 53), ANCHOR_TY(448, 1), "%5.2f", results->io_read_uma0 / 1024.0f);
 			// imc0
 			if (results->io_write_imc0_4k > 0)
-				display_printf(ANCHOR_LX(20, 18), ANCHOR_TY(448, 2), "%3.2f", results->io_write_imc0_4k / 1024.0f);
+				display_printf(ANCHOR_LX(40, 18), ANCHOR_TY(448, 2), "%5.2f", results->io_write_imc0_4k / 1024.0f);
 			if (results->io_read_imc0_4k > 0)
-				display_printf(ANCHOR_LX(20, 30), ANCHOR_TY(448, 2), "%3.2f", results->io_read_imc0_4k / 1024.0f);
+				display_printf(ANCHOR_LX(40, 30), ANCHOR_TY(448, 2), "%5.2f", results->io_read_imc0_4k / 1024.0f);
 			if (results->io_write_imc0 > 0)
-				display_printf(ANCHOR_LX(20, 41), ANCHOR_TY(448, 2), "%3.2f", results->io_write_imc0 / 1024.0f);
+				display_printf(ANCHOR_LX(40, 41), ANCHOR_TY(448, 2), "%5.2f", results->io_write_imc0 / 1024.0f);
 			if (results->io_read_imc0 > 0)
-				display_printf(ANCHOR_LX(20, 53), ANCHOR_TY(448, 2), "%3.2f", results->io_read_imc0 / 1024.0f);
+				display_printf(ANCHOR_LX(40, 53), ANCHOR_TY(448, 2), "%5.2f", results->io_read_imc0 / 1024.0f);
 
 			display_set_color(255, 255, 255, 255);
 			break;
