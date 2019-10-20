@@ -32,7 +32,6 @@ void display_init() {
 }
 
 void display_clear() {
-    g_y = 0;
     memset(g_display_vram_base[g_display_offscreen_buf_i], 0, sizeof(rgba_t) * DISPLAY_PITCH * DISPLAY_HEIGHT);
 }
 
